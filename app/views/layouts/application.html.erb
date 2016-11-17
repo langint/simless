@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Text911 Backend Mockup</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <%#= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <%= javascript_include_tag "application", params[:controller] %>
+  <%if params[:controller] == 'simulation' && params[:action] == 'xxx'%>	
+  	<%= javascript_include_tag "d3.min.js" %>
+    <%= javascript_include_tag "d3pie.min.js" %>
+  <%end%>
+</head>
+<body>
+	<div class="container-fluid">
+    <div class='row'>
+      <%= render 'layouts/header' unless (params[:action] == 'index' && params[:controller] == 'simulation')%></div>
+		<%= yield %>
+    <div class="row-fluid"><%= render 'layouts/footer' %></div>
+  </div>
+</body>
+</html>

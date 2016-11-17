@@ -1,0 +1,13 @@
+Rails.application.routes.draw do
+  
+  root 'simulation#index'
+  resources :simulation
+  get '/connections' => 'simulation#connections'
+  post  '/connections' => 'simulation#save_connections'
+  get '/change_tab' => 'simulation#change_tab'
+  get '/settings' => 'simulation#settings'
+  get 
+
+  resources :backend
+get '/landing' => 'simulation#landing'
+end

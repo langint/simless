@@ -1,0 +1,124 @@
+<script type="text/javascript">
+  // create an array with nodes
+  var nodes = [
+    {id: 1,  label: 'mike', group:'psap1'},
+    {id: 2,  label: 'george', group:'psap1'},
+    {id: 3,  label: 'elaine', group:'psap1'},
+    {id: 4,  label: 'Cramer', group:'psap1'},
+    {id: 5,  label: 'mary', group:'psap2'},
+    {id: 6,  label: 'tom', group:'psap2'},
+    {id: 7,  label: 'sammy', group:'psap3'},
+    {id: 8,  label: 'donald', group:'psap1'},
+    {id: 9,  label: 'billy', group:'psap1'},
+    {id: 10, label: 'bob', group:'psap1'},
+    {id: 11, label: 'GWA1', cid:0, group: 'gwa'},
+    {id: 12, label: 'GWA2', cid:0, group: 'gwa', color:'lime'},
+    {id: 13, label: 'GWA3', cid:0, group: 'gwa', color:'lime'},
+    {id: 14, label: 'GWP1',  group: 'gwp', shape: 'icon', icon: {face: 'FontAwesome', code: '\uf233', size: 60, color: '#FA6900'}},
+    {id: 15, label: 'GWP2',  group: 'gwp', shape: 'icon', icon: {face: 'FontAwesome', code: '\uf233', size: 60, color: '#FA6900'}},
+    {id: 16, label: 'GWP3',  group: 'gwp', shape: 'icon', icon: {face: 'FontAwesome', code: '\uf233', size: 60, color: '#FA6900'}},
+    {id: 17, label: 'TCC', shape: 'icon', icon: {face: 'FontAwesome', code: '\uf1c0', size: 90, color: '#f0a30a'}}
+  ];
+
+  // create an array with edges
+  var edges = [
+    {from: 1, to: 11},
+    {from: 2, to: 11},
+    {from: 3, to: 11},
+    {from: 4, to: 11},
+    {from: 5, to: 12},
+    {from: 6, to: 12},
+    {from: 7, to: 13},
+    {from: 8, to: 13},
+    {from: 9, to: 13},
+    {from: 10, to: 13},
+    {from: 11, to: 14},
+    {from: 12, to: 15},
+    {from: 13, to: 16},
+    {from: 14, to: 17},
+    {from: 15, to: 17},
+    {from: 16, to: 17},
+  ];
+
+  // create a network
+  var container = document.getElementById('mynetwork');
+  var data = {
+    nodes: nodes,
+    edges: edges
+  };
+  var options = {
+    interaction:{hover:true},
+    nodes: {
+        shape: 'dot', size:20, font:{size:12, color:'#FFFFFF'}, borderWidth:2
+    },
+    groups:{'gwa':{shape: 'icon', icon: {face: 'FontAwesome', code: '\uf140', size: 60, color: 'lime'}}},
+    layout:{randomSeed:8}};
+  var network = new vis.Network(container, data, options);
+    network.on("click", function (params) {
+        console.log(JSON.stringify(params));
+        params.event = "[original event]";
+        $('#network_event').html(JSON.stringify(params, null, 4));
+    });
+/*    
+    network.on("selectNode", function(params) {
+      if (params.nodes.length == 1) {
+          if (network.isCluster(params.nodes[0]) == true) {
+              network.openCluster(params.nodes[0]);
+          }
+      }
+  });
+*/
+  function clusterByCid() {
+      network.setData(data);
+      var clusterOptionsByData = {
+          joinCondition:function(childOptions) {
+              return childOptions.cid == 1;
+          },
+          clusterNodeProperties: {id:'cidCluster', borderWidth:3, shape:'database'}
+      };
+      network.cluster(clusterOptionsByData);
+  }
+  function clusterByColor() {
+      network.setData(data);
+      var colors = ['orange','lime','DarkViolet'];
+      var clusterOptionsByData;
+      for (var i = 0; i < colors.length; i++) {
+          var color = colors[i];
+          clusterOptionsByData = {
+              joinCondition: function (childOptions) {
+                  return childOptions.color.background == color; // the color is fully defined in the node.
+              },
+              processProperties: function (clusterOptions, childNodes, childEdges) {
+                  var totalMass = 0;
+                  for (var i = 0; i < childNodes.length; i++) {
+                      totalMass += childNodes[i].mass;
+                  }
+                  clusterOptions.mass = totalMass;
+                  return clusterOptions;
+              },
+              clusterNodeProperties: {id: 'cluster:' + color, borderWidth: 3, shape: 'database', color:color, label:'color:' + color}
+          };
+          network.cluster(clusterOptionsByData);
+      }
+  }
+  function clusterByConnection() {
+      network.setData(data);
+      network.clusterByConnection(1)
+  }
+  function clusterOutliers() {
+      network.setData(data);
+      network.clusterOutliers();
+  }
+  function clusterByHubsize() {
+      network.setData(data);
+      var clusterOptionsByData = {
+          processProperties: function(clusterOptions, childNodes) {
+            clusterOptions.label = "[" + childNodes.length + "]";
+            return clusterOptions;
+          },
+          clusterNodeProperties: {borderWidth:3, shape:'box', font:{size:30}}
+      };
+      network.clusterByHubsize(undefined, clusterOptionsByData);
+  }
+
+</script>

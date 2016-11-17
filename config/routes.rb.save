@@ -1,0 +1,9 @@
+Rails.application.routes.draw do
+  
+  root 'simulation#index'
+  resources :simulation
+  resources '/connections' => 'simulation#connections'
+  get '/change_tab' => 'simulation#change_tab'
+
+
+end

@@ -1,0 +1,22 @@
+<div class='control-title'>Clients online</div>
+<div><input id="pool_size" type="text" name='slider' data-slider-value="10" data-slider-step="10"
+		data-slider-min="1" data-slider-max="<%= Simulator.instance_variable_get(:@max_pool) %>" data-slider-scale='logarithmic' /></div>
+<div class='control-title'>Refresh Interval, sec</div> 
+<div >
+	<input id="refresh_interval" name='slider' type="text" data-slider-min="2" data-slider-max="20" data-slider-step="1" data-slider-value="5"  />
+</div>
+<div class='control-title'>Ramp-up speed, clients/sec</div>
+<div>
+	<input id="ramp_up" name='slider' type="text" data-slider-min="1" data-slider-max="10" data-slider-step="1" data-slider-value="10"/>
+</div>
+<div class='control-title'>Conversations/day</div>
+<div>
+	<input id="conv_day" name='slider' type="text" data-slider-min="10" data-slider-max="500" data-slider-step="10" data-slider-value="100"/>
+</div>
+<div class='control-title'>Messages/conversation</div>
+<div>
+	<input id="mess_conv" name='slider' type="text" data-slider-min="1" data-slider-max="30" data-slider-step="1" data-slider-value="10"/>
+</div>
+<div style='margin-top:10px;'>
+	<button type="button" class="btn btn-default"  style="width:90%; background-color:#8DB694;" name='start'>Start</button>
+</div>

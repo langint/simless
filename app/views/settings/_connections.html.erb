@@ -1,0 +1,48 @@
+<form name='conn'>
+	<div class="panel panel-default">
+		<div class="panel-heading" name='panel-header'  style='cursor:pointer;'>
+			GWA Connections
+			<div class="btn-group pull-right" style="margin-top:-7px;display:none;" role="group" aria-label="...">
+		  		<button type="button" name='con' class="btn btn-success">Unlock</button>
+		  		<button type="button" name='con' class="btn btn-danger" disabled>Save</button>
+		  		<button type="button" name='con' class="btn btn-info" disabled>Cancel</button>
+			</div>
+		</div>
+		<div class="panel-body" style="display:none;">
+	  		<table class="table">
+		    <tr>
+		    	<td>Name</td>
+			  	<td>Address</td>
+			  	<td>SSL</td>
+		    </tr>
+		  	<% @env[:connections].each do |k, v| %>
+		  	<tr name='connection' conn_id="<%= k%>">
+		  		<td><input type="text" class="form-control" name="name" value="<%= v['name']%>" readonly></td>
+			  	<td><input type="text" class="form-control" name="url" value="<%= v['url']%>" readonly></td>
+			  	<td><input type="checkbox" class="form-control" name="ssl" <% if v['ssl']%>checked<%end%> disabled ></td>
+			  	<td><button type="button" name='con' class="btn btn-info" conn_id ="<%=k%>">Test</button></td>
+		  	</tr>
+		  	<% end %>
+		  </table>
+		</div>
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading" name='panel-header' style='cursor:pointer;'>
+			API Messages
+			<div class="btn-group pull-right" style="margin-top:-7px; display:none;" role="group" aria-label="...">
+		  		<button type="button" name='api' class="btn btn-success">Unlock</button>
+		  		<button type="button" name='api' class="btn btn-danger" disabled>Save</button>
+		  		<button type="button" name='api' class="btn btn-info" disabled>Cancel</button>
+			</div>
+		</div>
+		<div class="panel-body" style="display:none;">
+	  		<% @api_list.each do |key, value| %>
+	  		<div class = "form-group">
+	  			<div><%= value["name"]%></div>
+	  			<textarea class = "form-control" rows = "3"><%= value["text"]%></textarea>
+			</div>
+			<%end%>
+		</div>
+	</div>
+	<input type='hidden' id='env' value="<%=@env[:id] %>" />
+</form>

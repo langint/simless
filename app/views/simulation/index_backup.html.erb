@@ -1,0 +1,21 @@
+<div id='main' class='container-fluid'>
+	<div class='col-md-2'>
+		<div class="panel panel-primary">
+			<div class="panel-footer" style="font-size:16px;background-color:#E99F46;"><strong>Settings</strong></div>
+			<div class="panel-body" style="background-color:#222222;"><%= render 'controls' %></div>
+		</div>
+		<div class="panel panel-primary">
+			<div class="panel-footer" style="font-size:16px;background-color:#E99F46;"><strong>Text Sessions</strong></div>
+			<div class="panel-body" style="background-color:#222222;"><%= render 'sms_sim' %></div>
+		</div>
+	</div>
+	<div class='col-md-8'><%= render 'simulation' %></div>
+	<div class='col-md-2'>
+		<div class="panel panel-success">
+			<div class="panel-footer" style="font-size:16px;background-color:#E99F46;"><strong>Outcome</strong></div>
+			<div class="panel-body" style="background-color:#f8f8f8;">
+				<%= render 'meters' %></div>
+			</div>
+		</div>
+	</div>
+</div>

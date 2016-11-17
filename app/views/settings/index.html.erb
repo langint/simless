@@ -1,0 +1,80 @@
+<style>
+	.settings-menu{color:#686B5A;};
+</style>
+<div class='row-fluid'>
+	<div class = 'col-md-2'>
+		<div class="panel panel-primary">
+			<div class="panel-footer" style="font-size:16px;background-color:#E99F46;"><strong>Settings</strong></div>
+			<div class="panel-body" style="background-color:#222222;">
+				<button class="accordion">Section 1</button>
+				<div class="config-menu">
+				  <p>Lorem ipsum...</p>
+				</div>
+
+				<button class="accordion">Section 2</button>
+				<div class="config-menu">
+				  <p>Lorem ipsum...</p>
+				</div>
+
+				<button class="accordion">Section 3</button>
+				<div class="config-menu">
+				  <p>Lorem ipsum...</p>
+				</div>
+			<%#= render 'controls' %></div>
+			</div>
+		</div>
+	</div>
+	<div class='col-md-8' id='system_conf'><%= render "system_conf" %></div>
+	<div class='col-md-2'>
+		<div id='conn_test_res' class="panel panel-default">
+		  	<div class="panel-heading">Test results</div>
+			<div class="panel-body" id="conn_test"></div>
+			<div id='loader' style='display:none; text-align:center;'><p><%= image_tag 'gears.gif' %></p></div>
+		</div>
+	</div>
+</div>
+
+<style>
+	/* Style the buttons that are used to open and close the accordion panel */
+button.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+button.accordion.active, button.accordion:hover {
+    background-color: #ddd;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+div.config-menu {
+    padding: 0 18px;
+    background-color: white;
+    display: none;
+}
+
+/* The "show" class is added to the accordion panel when the user clicks on one of the buttons. This will show the panel content */
+div.config-menu.show {
+    display: block !important;
+}
+
+</style>
+<script>
+	var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+    acc[i].onclick = function(){
+        this.classList.toggle("active");
+        this.nextElementSibling.classList.toggle("show");
+    }
+}
+
+</script>

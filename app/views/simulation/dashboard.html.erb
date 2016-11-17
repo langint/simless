@@ -1,0 +1,23 @@
+<div id='main'>
+	<div class='col-md-2'>
+		<div class="panel panel-primary">
+			<div class="panel-footer" style="font-size:16px;background-color:#E99F46;"><strong>Settings</strong></div>
+			<div class="panel-body" style="background-color:#222222;"><%= render 'controls' %></div>
+		</div>
+		<div class="panel panel-primary">
+			<div class="panel-footer" style="font-size:16px;background-color:#E99F46;"><strong>GWA-GWP Interface</strong></div>
+			<div class="panel-body" style="background-color:#222222;"><%= render 'sms_sim' %></div>
+		</div>
+	</div>
+	<div class='col-md-8'><%= render 'simulation' %></div>
+	<div class='col-md-2'>
+		<div class="panel panel-success">
+			<div class="panel-footer" style="font-size:16px;background-color:#E99F46;"><strong><%= @env[:name] %></strong></div>
+			<div class="panel-body" style="background-color:#f8f8f8;">
+				<div id='loader' style='display:none; text-align:center;'><p><%= image_tag 'gears.gif' %></p></div>
+				<%= render 'meters' %></div>
+			</div>
+		</div>
+	</div>
+	<input type='hidden' id='event'>
+</div>

@@ -1,0 +1,14 @@
+<div class='col-md-4'></div>
+<div class='col-md-4'></div>
+<div class='col-md-4'>
+	<button class='btn-primary' onclick="testCache();">Cache Store Test</button>
+</div>
+
+<script>
+	function testCache(){
+		$.get("/api/cache_test").done(function(data){
+		console.log(data);
+		});
+	}
+
+</script>

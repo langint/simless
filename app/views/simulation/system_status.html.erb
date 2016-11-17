@@ -1,0 +1,43 @@
+<style>
+.server-status{
+/*	background-color: #EEE6AB; border:1px solid #45484B; margin:10px;padding:5px; border-radius: 5px;*/
+}	
+
+</style>
+<input type='hidden' id='network' val='' />
+<div class='row fluid' style='border:1px solid black;'>
+	<div class='col-md-2'>		
+		<div class="panel panel-success">
+			<div class="panel-footer" style="font-size:16px;background-color:#A6B598;"><strong>Performance</strong></div>
+			<div class="panel-body" style="background-color:#f8f8f8;">
+				<ul class="nav nav-pills nav-stacked">
+				  <li name='set-menu' class=' active'><a href="#">GWA Server1</a></li>
+				  <li name='set-menu'><a href="#" class='settings-menu'>GWA Server2</a></li>
+				  <li name='set-menu'><a href="#" class='settings-menu'>Proxy Server1</a></li>
+				  <li name='set-menu'><a href="#" class='settings-menu'>Proxy Server2</a></li-->
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class='col-md-8' id="mynetwork"><%= render "network" %></div>
+	<div class='col-md-2'>
+		<div class="panel panel-info">
+			<div class="panel-heading"><strong>System Status</strong></div>
+			<div class="panel-body">
+				<table class='table'>
+					<tr><td>Load Balancer</td><td><div class='led-green'></div></td></tr>
+					<tr><td>GWA1</td><td><div class='led-red'></div></td></tr>
+					<tr><td>GWA2</td>
+						<td><div class='led-green'></div></td>
+					</tr>
+					<tr><td>GWA3</td><td><div class='led-green'></div></td></tr>
+					<tr><td>Proxy 1</td><td><div class='led-blue'></div></td></tr>
+					<tr><td>Proxy 2</td><td><div class='led-green'></div></td></tr>
+					<tr><td>Proxy 3</td><td><div class='led-green'></div></td></tr>
+					<tr><td>ServiceText</td><td><div class='led-blue'></div></td></tr>
+				</table>
+				<div id='network_event'></div>			
+			</div>
+		</div>
+	</div>
+</div>

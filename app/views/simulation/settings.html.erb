@@ -1,0 +1,50 @@
+<style>
+	.settings-menu{color:#686B5A;};
+</style>
+<div class='container-fluid'>
+	<div class = 'col-md-2'>
+		<div class="panel panel-success">
+			<div class="panel-footer" style="font-size:16px;background-color:#A6B598;"><strong>Environment</strong></div>
+			<div class="panel-body" style="background-color:#f8f8f8;">
+				<ul class="nav nav-pills nav-stacked">
+				<% @env_list.each do |e| %>
+	  				<li role="presentation" name='env' <%if e[:default] %>class="active"<%end%> >
+	  					<a href="#"><%= e[:name] %></a>
+	  				</li>
+				<% end %>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class='col-md-8'><%= render "connections" %></div>
+	<div class='col-md-2'>
+		<div id='info_panel'>
+			<div id='test_results' class="panel panel-default" >
+			  	<div class="panel-heading">Environment</div>
+				<div class="panel-body"><h4>
+					<%= @env.select{|e| e["default"]}.first["name"] %></h4>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-body">
+				</div>
+			</div>
+		</div>
+		<div id='conn_test_res' style='display:none;'>
+			<div id='test_results' class="panel panel-default" >
+			  	<div class="panel-heading">Test results</div>
+				<div class="panel-body" id="conn_test">If you make changes in connection settings, please save the new settings prior to testing it.</div>
+				<div id='loader' style='display:none; text-align:center;'><p><%= image_tag 'gears.gif' %></p></div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<div class="btn-group" role="group" aria-label="...">
+			  			<button type="button" name='con' class="btn btn-success">Unlock</button>
+			  			<button type="button" name='con' class="btn btn-primary" disabled>Save</button>
+			  			<button type="button" name='con' class="btn btn-info">Cancel</button>
+					</div>			
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

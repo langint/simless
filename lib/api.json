@@ -1,0 +1,47 @@
+{
+	"new_session":{
+		"name": "New Session Request",
+		"text": {
+			"TCS.psapid":"P5678",
+			"TCS.carrierId":"verizon",
+			"TCS.sessionId":"077C172454AEEEF65FDC59A1",
+			"TCS.sessionState":1,
+			"TCS.dateStart":"Fri Jan 09 11:02:06 PST 2015",
+			"TCS.dateEnd":"Sat Nov 29 16:00:00 PST 2",
+			"TCS.callbackNum":"4102220004",
+			"TCS.mostRecentLoc":{"TCS.lat":47609700,"TCS.lon":-122333100,
+			"TCS.hUncert":2500,"TCS.mlpPosMethod":"CELL"},
+			"TCS.sessionTransferTarget":{"TCS.psapid":"","TCS.psapname":""},
+			"TCS.messsages":[{
+				"TCS.date":"Fri Jan 09 11:02:06 PST 2015",
+				"TCS.from":"4102220004",
+				"TCS.text":"Help 4!","TCS.psapid":null,
+				"TCS.messageId":"A267182454AEEEF65FDC59A1",
+				"TCS.sessionId":"077C172454AEEEF65FDC59A1",
+				"TCS.operatorLogin":"","TCS.to":"911"}
+			]}
+		},
+	"delivery_receipt":{
+	"name": "GWA Delivery Receipt",
+	"text": {
+		"TCS.messageId":"72673515551B0FD7134B59A1", 
+		"TCS.sessionId":"7E41EA52551B0FD7137859A1", 
+		"TCS.successInDelivery": true, 
+		"controller":"txt911api", 
+		"action":"confirm_message_delivery"
+		}
+	},
+	"calltaker_response":{
+		"name": "Calltaker Response",
+		"text": {
+	      "TCS.PSAPMessage": {
+	        "TCS.PSAPId" : "23",
+	        "TCS.sessionId" :"session_id",
+	        "TCS.text" : "What can I do for y'all?",
+	        "TCS.to" : "callback_num",
+	        "TCS.from" : "911",
+	        "TCS.operatorLogin" : "login@23"
+	      }
+ 		}
+	}
+}

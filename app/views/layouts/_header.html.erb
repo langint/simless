@@ -1,0 +1,30 @@
+<nav class="navbar navbar-inverse navbar-static-top">
+	<div class="container-fluid">
+	<div class='col-md-3'><h3 style="color:white;margin-top:10px;">Text911 SimLess Dashboard</h3></div>
+	<div class='col-md-9'>
+      	<div class="collapse navbar-collapse navbar-ex1-collapse">
+	    	<ul class="nav navbar-nav">
+				<li role="presentation" name='menu-item' class="active"><a href="#">Simulation</a></li>
+				<!--li role="presentation" name='menu-item'><a href="#">Connections</a></li-->
+				<li role="presentation" name='menu-item'><a href="#">Analytics</a></li>			  
+      			<li class="dropdown">
+        			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+        				Graph display options <span class="caret"></span></a>
+        			<ul class="dropdown-menu">
+			        	<li name='graph_mode'><a href="#">Discrete</a></li>
+			        	<li name='graph_mode'><a href="#">Static</a></li>  
+			        	<li name='graph_mode'><a href="#">Continuous</a></li>
+		        	</ul>
+      			</li>
+      			<li role="presentation" name='menu-item'><a href="#">System Status</a></li>
+      			<li role='presentation' name='menu-item'><a href='#'>API</a></li>
+                        <li role="presentation" name='menu-item'><a href="http://10.32.28.212:8082">User Interface</a></li>
+			</ul> 
+			<ul class="nav navbar-nav navbar-right">
+        		<li role="presentation" name='menu-item'>
+        			<a href="#"><%= image_tag "settings.png", size: "25x25", title:"System Settings" %></a>
+        		</li>
+       		</ul>
+       	</div>
+	</div>
+</nav>

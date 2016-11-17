@@ -1,0 +1,22 @@
+{
+	"TCS.psapid":"T29095999", 
+	"TCS.carrierId": "verizon", 
+	"TCS.sessionId":"077C172454AEEEF65FDC59A1", 
+	"TCS.sessionState":1, 
+	"TCS.dateStart":"Wed Sep 14 11:02:06 PST 2016", 
+	"TCS.dateEnd": "Wed Sep 14 16:00:00 PST 2016", 
+	"TCS.callbackNum":"8102220004", 
+	"TCS.mostRecentLoc": {
+		"TCS.lat":47609700, "TCS.lon":-122333100,"TCS.hUncert":2500, "TCS.mlpPosMethod":"CELL"}, 
+	"TCS.sessionTransferTarget":{"TCS.psapid":"", "TCS.psapname":""}, 
+	"TCS.messsages": [
+		{"TCS.date":"Wed Sep 14 11:02:06 PST 2016",
+		"TCS.from":"4102220004", 
+		"TCS.text":"Help 4!", 
+		"TCS.psapid":"null", 
+		"TCS.messageId":"A267182454AEEEF65FDC59A1", 
+		"TCS.sessionId":"077C172454AEEEF65FDC59A1", 
+		"TCS.operatorLogin":"tcstestuser12", 
+		"TCS.to":"911"}
+	]
+}

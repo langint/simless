@@ -1,0 +1,73 @@
+---
+- :id: 0
+  :name: DEV Front
+  :default: false
+  :connections:
+    :front:
+      name: Front End
+      url: smsdev-gemapp1.sealab.telecomsys.com:8080
+      ssl: false
+    :back:
+      name: Back End
+      url: TBD
+      ssl: false
+- :id: 1
+  :name: PRE w/o SSL East 1
+  :default: false
+  :connections:
+    :front:
+      name: PRE East ONE
+      url: smspre-est-gemapp1.xypoint.com:8080
+      ssl: false
+    :back:
+      name: PRE API
+      url: TBD
+      ssl: false
+- :id: 2
+  :name: PRE with SSL
+  :default: false
+  :connections:
+    front:
+      name: Front End
+      url: 172.31.4.77
+      ssl: true
+    back:
+      name: API
+      url: TBD
+      ssl: false
+- :id: 3
+  :name: Front End Simulator (GWA1)
+  :default: false
+  :connections:
+    :front:
+      name: Front End GWA1
+      url: 10.32.28.85:8080
+      ssl: false
+    :back:
+      name: Back End
+      url: TBD
+      ssl: false
+- :id: 4
+  :name: System Simulator
+  :default: false
+  :connections:
+    :front:
+      name: Front End
+      url: google.com
+      ssl: false
+    :back:
+      name: Back End
+      url: TBD
+      ssl: false
+- :id: 5
+  :name: PlayGround
+  :default: true
+  :connections:
+    :front:
+      name: PlayGround 54
+      url: http://10.32.95.14:8080
+      ssl: false
+    :back:
+      name: PRE API
+      url: TBD
+      ssl: false
